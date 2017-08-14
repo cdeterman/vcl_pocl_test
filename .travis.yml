@@ -53,7 +53,7 @@ install:
   
 script:
   - cd viennacl-dev/examples/tutorial
-  - g++ -o viennacl-info viennacl-info.cpp -lOpenCL -I../../viennacl
+  - g++ -o viennacl-info viennacl-info.cpp -lOpenCL -I../..
   - ./viennacl-info
 
 notifications:
