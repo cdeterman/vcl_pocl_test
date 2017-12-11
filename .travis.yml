@@ -40,7 +40,7 @@ before_install:
 install:
   - |
     cd ..
-    git clone -b release_0_14 https://github.com/pocl/pocl.git pocl
+    git clone -b release_1_0 https://github.com/pocl/pocl.git pocl
     cd pocl
     mkdir build
     cd build
