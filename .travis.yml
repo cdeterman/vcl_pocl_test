@@ -4,11 +4,11 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-precise-3.8
+            - llvm-toolchain-trusty-5.0
           packages:
-            - clang-3.8
+            - clang-5.0
       env:
-        - MATRIX_EVAL="CC=clang-3.8 && CXX=clang++-3.8"
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
 
         
 language: c++
@@ -20,7 +20,7 @@ warnings_are_errors: false
 
 env:
   global:
-    - POCL_LLVM_VERSION=3.8
+    - POCL_LLVM_VERSION=5.0
     - POCL_LLVM_CONFIG=/usr/lib/llvm-${POCL_LLVM_VERSION}/bin/llvm-config
     - POCL_CXX_COMPILER=/usr/lib/llvm-${POCL_LLVM_VERSION}/bin/clang++
     - POCL_C_COMPILER=/usr/lib/llvm-${POCL_LLVM_VERSION}/bin/clang
@@ -44,7 +44,7 @@ install:
     cd pocl
     mkdir build
     cd build
-    cmake -DWITH_LLVM_CONFIG=${POCL_LLVM_CONFIG} ..
+    cmake -DWITH_LLVM_CONFIG=${POCL_LLVM_CONFIG} -DCMAKE_INSTALL_PREFIX=/usr ..
     make
     sudo make install
   - cd $HOMEDIR
